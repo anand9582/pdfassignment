@@ -42,7 +42,7 @@ const Navbar = ({ cartItems, cartIconRef, isCartAnimating }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="nav-menu desktop-menu dd">
+          <nav className="nav-menu desktop-menu ">
             <Link to="/" className={`nav-item ${isActive('/') ? 'active' : ''}`}>
               Home
             </Link>
