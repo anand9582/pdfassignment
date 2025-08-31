@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 import './Navbar.css';
 
-const Navbar = ({ cartItems, scrollToSection, cartIconRef, isCartAnimating }) => {
+const Navbar = ({ cartItems, cartIconRef, isCartAnimating }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home'); // Default active section
+  const location = useLocation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -25,10 +26,8 @@ const Navbar = ({ cartItems, scrollToSection, cartIconRef, isCartAnimating }) =>
     setIsMobileMenuOpen(false);
   };
 
-  const handleNavClick = (sectionId) => {
-    setActiveSection(sectionId);
-    scrollToSection(sectionId);
-    closeMobileMenu();
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -37,46 +36,28 @@ const Navbar = ({ cartItems, scrollToSection, cartIconRef, isCartAnimating }) =>
         <div className="nav-container">
           {/* Logo */}
           <div className="nav-logo">
-            <Logo />
+            <Link to="/">
+              <Logo />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="nav-menu desktop-menu">
-            <a 
-              href="#home" 
-              onClick={() => handleNavClick('home')}
-              className={activeSection === 'home' ? 'active' : ''}
-            >
+            <Link to="/" className={`nav-item ${isActive('/') ? 'active' : ''}`}>
               Home
-            </a>
-            <a 
-              href="#products" 
-              onClick={() => handleNavClick('products')}
-              className={activeSection === 'products' ? 'active' : ''}
-            >
-              Products
-            </a>
-            <a 
-              href="#about" 
-              onClick={() => handleNavClick('about')}
-              className={activeSection === 'about' ? 'active' : ''}
-            >
+            </Link>
+            <Link to="/about" className={`nav-item ${isActive('/about') ? 'active' : ''}`}>
               About Us
-            </a>
-            <a 
-              href="#cart" 
-              onClick={() => handleNavClick('cart')}
-              className={activeSection === 'cart' ? 'active' : ''}
-            >
+            </Link>
+            <Link to="/" className={`nav-item ${isActive('/products') ? 'active' : ''}`}>
+              Products
+            </Link>
+            <Link to="/" className={`nav-item ${isActive('/cart') ? 'active' : ''}`}>
               Cart
-            </a>
-            <a 
-              href="#contact" 
-              onClick={() => handleNavClick('contact')}
-              className={activeSection === 'contact' ? 'active' : ''}
-            >
+            </Link>
+            <Link to="/" className={`nav-item ${isActive('/contact') ? 'active' : ''}`}>
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Utility Icons */}
@@ -126,41 +107,21 @@ const Navbar = ({ cartItems, scrollToSection, cartIconRef, isCartAnimating }) =>
         </div>
         
         <nav className="sidebar-menu">
-          <a 
-            href="#home" 
-            onClick={() => handleNavClick('home')}
-            className={activeSection === 'home' ? 'active' : ''}
-          >
+          <Link to="/" className={`sidebar-item ${isActive('/') ? 'active' : ''}`} onClick={closeMobileMenu}>
             Home
-          </a>
-          <a 
-            href="#products" 
-            onClick={() => handleNavClick('products')}
-            className={activeSection === 'products' ? 'active' : ''}
-          >
+          </Link>
+          <Link to="/products" className={`sidebar-item ${isActive('/products') ? 'active' : ''}`} onClick={closeMobileMenu}>
             Products
-          </a>
-          <a 
-            href="#about" 
-            onClick={() => handleNavClick('about')}
-            className={activeSection === 'about' ? 'active' : ''}
-          >
+          </Link>
+          <Link to="/about" className={`sidebar-item ${isActive('/about') ? 'active' : ''}`} onClick={closeMobileMenu}>
             About Us
-          </a>
-          <a 
-            href="#cart" 
-            onClick={() => handleNavClick('cart')}
-            className={activeSection === 'cart' ? 'active' : ''}
-          >
+          </Link>
+          <Link to="/cart" className={`sidebar-item ${isActive('/cart') ? 'active' : ''}`} onClick={closeMobileMenu}>
             Cart
-          </a>
-          <a 
-            href="#contact" 
-            onClick={() => handleNavClick('contact')}
-            className={activeSection === 'contact' ? 'active' : ''}
-          >
+          </Link>
+          <Link to="/contact" className={`sidebar-item ${isActive('/contact') ? 'active' : ''}`} onClick={closeMobileMenu}>
             Contact
-          </a>
+          </Link>
         </nav>
 
         <div className="sidebar-utilities">

@@ -1,14 +1,9 @@
 import React, { useState, useRef } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import USPSection from './components/USPSection';
-import MissionVision from './components/MissionVision';
-import FeaturedProducts from './components/FeaturedProducts';
-import AboutSnippet from './components/AboutSnippet';
-import TestimonialsSlider from './components/TestimonialsSlider';
-import FAQSection from './components/FAQSection';
-import ContactForm from './components/ContactForm';
+import Home from './pages/Home';
+import About from './pages/About';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -17,7 +12,7 @@ const App = () => {
   const [isCartAnimating, setIsCartAnimating] = useState(false);
   const cartIconRef = useRef(null);
 
-  // Handle scroll to sections
+  // Handle scroll to sections for footer links
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -38,38 +33,16 @@ const App = () => {
     <div className="App">
       <Navbar 
         cartItems={cartItems} 
-        scrollToSection={scrollToSection} 
+        scrollToSection={scrollToSection}
         cartIconRef={cartIconRef}
         isCartAnimating={isCartAnimating}
       />
       
-      {/* Hero Section */}
-      <HeroSection scrollToSection={scrollToSection} />
+      <Routes>
+        <Route path="/" element={<Home scrollToSection={scrollToSection} animateCart={animateCart} />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
       
-      {/* Why Choose Us Section */}
-      <USPSection />
-      
-      {/* Mission & Vision Section */}
-      <MissionVision />
-      
-      {/* Featured Products Section */}
-      <FeaturedProducts animateCart={animateCart} />
-      
-      {/* About Snippet Section */}
-      <AboutSnippet />
-      
-      {/* Testimonials Section */}
-      <TestimonialsSlider />
-      
-  {/* FAQ & Policies Section */}
-  <FAQSection />
-      
-      {/* Contact Form Section */}
-      <ContactForm />
-      
-          
-
-      {/* Footer */}
       <Footer scrollToSection={scrollToSection} />
       
       {/* Scroll to Top Button */}

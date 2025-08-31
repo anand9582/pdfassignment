@@ -65,13 +65,7 @@
   line-height: 1.2;
 }
 
-.about-separator {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(to right, var(--gold), var(--light-brown));
-  margin-bottom: 2rem;
-  border-radius: 2px;
-}
+
 
 .about-content p {
   font-size: 1.1rem;
