@@ -6,7 +6,7 @@ const AboutSnippet = () => {
     <section id="about" className="about-snippet">
       <div className="about-container">
         <div className="about-image">
-          <img src="/src/assets/dairy-main.jpg" alt="Traditional dairy farming - family tradition" />
+          <img src="/dairy-main.jpg" alt="Traditional dairy farming - family tradition" />
         </div>
         <div className="about-content">
           <h2>Young Passion, Pure Tradition</h2>
