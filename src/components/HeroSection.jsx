@@ -13,17 +13,32 @@ const HeroSection = ({ scrollToSection }) => {
         <div className="hero-overlay"></div>
       </div>
       
+      {/* Milk Drop Particles Background */}
+      <div className="milk-particles">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="milk-drop"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${4 + Math.random() * 3}s`,
+            }}
+          ></div>
+        ))}
+      </div>
+      
       <div className="hero-content">
         <h1 className="fade-in-slide">
-          <span className="pure-taste">Pure Taste,</span>
-          <span className="pure-tradition">Pure Tradition</span>
+          <span className="pure-taste slide-in-left">Pure Taste,</span>
+          <span className="pure-tradition slide-in-right">Pure Tradition</span>
         </h1>
         
-        <p className="hero-description fade-in-slide delay-1">
+        <p className="hero-description fade-in-slide delay-1 slide-in-up">
           Experience the finest dairy products crafted with <strong>love, tradition,</strong> and <strong>uncompromising quality.</strong> From farm to table, we deliver nature's purest gifts to your doorstep.
         </p>
         
-        <div className="feature-badges fade-in-slide delay-2">
+        <div className="feature-badges fade-in-slide delay-2 slide-in-up">
           <div className="feature-badge">
             <span className="badge-icon">👑</span>
             <span className="badge-text">Premium Quality</span>
@@ -42,7 +57,7 @@ const HeroSection = ({ scrollToSection }) => {
           </div>
         </div>
         
-        <div className="hero-buttons fade-in-slide delay-3">
+        <div className="hero-buttons fade-in-slide delay-3 slide-in-up">
           <button
             className="btn-primary"
             onClick={() => scrollToSection("products")}

@@ -7,6 +7,8 @@ import MissionVision from './components/MissionVision';
 import FeaturedProducts from './components/FeaturedProducts';
 import AboutSnippet from './components/AboutSnippet';
 import TestimonialsSlider from './components/TestimonialsSlider';
+import FAQSection from './components/FAQSection';
+import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -59,6 +61,14 @@ const App = () => {
       {/* Testimonials Section */}
       <TestimonialsSlider />
       
+  {/* FAQ & Policies Section */}
+  <FAQSection />
+      
+      {/* Contact Form Section */}
+      <ContactForm />
+      
+          
+
       {/* Footer */}
       <Footer scrollToSection={scrollToSection} />
       

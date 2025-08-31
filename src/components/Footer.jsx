@@ -1,74 +1,99 @@
 import React from 'react';
+import { 
+  MdHome, 
+  MdInfo, 
+  MdShoppingBag, 
+  MdHelp, 
+  MdPhone, 
+  MdEmail, 
+  MdLocationOn,
+  MdRefresh,
+  MdLocalShipping,
+  MdSecurity,
+  MdLock,
+  MdDescription,
+  MdFacebook,
+  MdCameraAlt,
+  MdChat,
+  MdPlayArrow
+} from 'react-icons/md';
+import logo from '../assets/logo.png';
+import './Footer.css';
 
 const Footer = ({ scrollToSection }) => {
   return (
     <footer id="contact" className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <div className="footer-logo">
-            <span className="logo-icon">🐄</span>
-            <div className="logo-text">
-              <span className="logo-main">Rama</span>
-              <span className="logo-sub">Dairy Products</span>
+          <div className="footer-logo-main">
+            <div className="logo-container">
+              <img src={logo} alt="Dairy Logo" className="footer-logo-image" />
             </div>
           </div>
-          <p>Bringing you the finest dairy products crafted with love and tradition. From farm to table, we ensure quality and freshness.</p>
-          <div className="social-icons">
-            <a href="#" aria-label="Facebook" className="social-icon">f</a>
-            <a href="#" aria-label="Instagram" className="social-icon">📷</a>
-            <a href="#" aria-label="Twitter" className="social-icon">🐦</a>
-            <a href="#" aria-label="YouTube" className="social-icon">▶️</a>
+          <p>Pure traditional dairy products delivered fresh to your doorstep.</p>
+          <div className="footer-motto">
+            <span className="motto-icon">⭐</span>
+            <span className="motto-text">Traditional Excellence</span>
           </div>
         </div>
         
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#home" onClick={() => scrollToSection('home')}>Home</a></li>
-            <li><a href="#products" onClick={() => scrollToSection('products')}>Products</a></li>
-            <li><a href="#about" onClick={() => scrollToSection('about')}>About Us</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
+            <li><a href="#home" onClick={() => scrollToSection('home')}><MdHome className="footer-icon" />Home</a></li>
+            <li><a href="#about" onClick={() => scrollToSection('about')}><MdInfo className="footer-icon" />About Us</a></li>
+            <li><a href="#products" onClick={() => scrollToSection('products')}><MdShoppingBag className="footer-icon" />Products</a></li>
+            <li><a href="#faq-policies" onClick={() => scrollToSection('faq-policies')}><MdHelp className="footer-icon" />FAQ & Policies</a></li>
+            <li><a href="#contact-form" onClick={() => scrollToSection('contact-form')}><MdPhone className="footer-icon" />Contact</a></li>
           </ul>
         </div>
         
         <div className="footer-section">
-          <h4>Our Products</h4>
+          <h4>Policies & Support</h4>
           <ul>
-            <li><a href="#ghee">Desi Ghee</a></li>
-            <li><a href="#milk">Fresh Milk</a></li>
-            <li><a href="#paneer">Paneer</a></li>
-            <li><a href="#curd">Curd</a></li>
-            <li><a href="#butter">Butter</a></li>
+            <li><a href="#refund-policy"><MdRefresh className="footer-icon" />Refund Policy</a></li>
+            <li><a href="#shipping-info"><MdLocalShipping className="footer-icon" />Shipping & Delivery</a></li>
+            <li><a href="#quality-assurance"><MdSecurity className="footer-icon" />Quality Assurance</a></li>
+            <li><a href="#privacy-policy"><MdLock className="footer-icon" />Privacy Policy</a></li>
+            <li><a href="#terms-service"><MdDescription className="footer-icon" />Terms of Service</a></li>
           </ul>
         </div>
         
         <div className="footer-section">
-          <h4>Contact Info</h4>
+          <h4>Contact & Follow Us</h4>
           <div className="contact-item">
-            <span className="contact-icon">📍</span>
-            <span>123 Dairy Farm Road, Green Valley, Mumbai 400001</span>
+            <MdPhone className="contact-icon" />
+            <span>+91 9876543210</span>
           </div>
           <div className="contact-item">
-            <span className="contact-icon">📞</span>
-            <span>+91 98765 43210</span>
+            <MdEmail className="contact-icon" />
+            <span>ramadairyproducts@gmail.com</span>
           </div>
           <div className="contact-item">
-            <span className="contact-icon">✉️</span>
-            <span>info@ramadairy.com</span>
+            <MdLocationOn className="contact-icon" />
+            <span>Traditional Dairy Farm, India</span>
+          </div>
+          
+          <div className="social-section">
+            <h5>Follow Us</h5>
+            <div className="social-icons">
+              <a href="#" aria-label="Facebook" className="social-icon"><MdFacebook /></a>
+              <a href="#" aria-label="Instagram" className="social-icon"><MdCameraAlt /></a>
+              <a href="#" aria-label="WhatsApp" className="social-icon"><MdChat /></a>
+              <a href="#" aria-label="YouTube" className="social-icon"><MdPlayArrow /></a>
+            </div>
+            <p className="social-text">Stay connected for updates and offers</p>
           </div>
         </div>
       </div>
       
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <p>© 2024 Rama Dairy Products. All rights reserved.</p>
+          <p>© 2025 Rama Dairy Products. All rights reserved.</p>
           <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
+            <a href="#privacy-policy">Privacy Policy</a>
             <span className="separator">|</span>
-            <a href="#">Terms of Service</a>
-            <span className="separator">|</span>
-            <a href="#">Shipping Policy</a>
+            <a href="#terms-service">Terms of Service</a>
           </div>
         </div>
       </div>

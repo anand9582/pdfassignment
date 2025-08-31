@@ -1,6 +1,6 @@
 /* Hero Section Styling - Clean Design */
 .hero {
-  height: 100vh;
+  height: 100vh; /* Reverted to 100vh, padding-top handles header offset */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
   background: #fafafa;
-  padding-top: 80px;
+  padding-top: 120px; /* Adjusted for header offset and desired spacing */
   box-sizing: border-box;
 }
 
@@ -27,7 +27,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.9;
+  opacity: 0.9; /* User's last manual change */
 }
 
 .hero-overlay {
@@ -36,12 +36,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(204 204 204 / 23%);
+  background: rgb(204 204 204 / 23%); /* User's last manual change */
   z-index: 2;
 }
 
 .hero-content {
-  max-width: 100%;
+  max-width: 100%; /* User's last manual change */
+  padding: 4rem 3rem; /* User's last manual change */
   z-index: 3;
   position: relative;
   background: rgba(255, 255, 255, 0.95);
@@ -49,7 +50,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
-  margin-top: 100px;
+  margin-top: 100px; /* User's last manual change */
 }
 
 .hero h1 {
@@ -97,19 +98,19 @@
   justify-content: center;
   gap: 2rem;
   margin-bottom: 3rem;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; /* Ensured single row */
 }
 
 .feature-badge {
   background: #fff;
-  padding: 8px 1.5rem;
+  padding: 1rem 1.5rem;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   border: 1px solid #f0f0f0;
-  min-width: 160px;
+  min-width: 160px; /* Ensured consistent width */
   justify-content: center;
 }
 
@@ -130,6 +131,7 @@
   flex-wrap: wrap;
 }
 
+/* Updated Button Design to Match Screenshot */
 .btn-primary {
   background: #8B4513;
   color: #fff;
@@ -143,6 +145,23 @@
   box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
   text-transform: none;
   letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-primary:hover {
@@ -163,15 +182,74 @@
   transition: all 0.3s ease;
   text-transform: none;
   letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #8B4513;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-secondary:hover::before {
+  left: 0;
 }
 
 .btn-secondary:hover {
-  background: #8B4513;
   color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
 }
 
-/* Animation Classes */
+/* Milk Drop Particles Background */
+.milk-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.milk-drop {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: milkFall 4s linear infinite;
+  opacity: 0.6;
+  filter: blur(0.5px);
+}
+
+@keyframes milkFall {
+  0% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+    transform: translateY(0) scale(1);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Enhanced Animation Classes */
 .fade-in-slide {
   opacity: 0;
   transform: translateY(30px);
@@ -197,11 +275,51 @@
   }
 }
 
+/* Sliding Text Animations */
+.slide-in-left {
+  animation: slideInLeft 1.2s ease forwards 0.2s;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.slide-in-right {
+  animation: slideInRight 1.2s ease forwards 0.4s;
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.slide-in-up {
+  animation: slideInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .pure-taste,
   .pure-tradition {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   
   .hero-description {
@@ -226,7 +344,7 @@
 @media (max-width: 768px) {
   .pure-taste,
   .pure-tradition {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
   }
   
   .hero-description {
@@ -257,7 +375,7 @@
 @media (max-width: 480px) {
   .pure-taste,
   .pure-tradition {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   
   .hero-description {
@@ -270,5 +388,11 @@
   
   .feature-badges {
     display: none; /* Hide feature badges on small mobile */
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
   }
 }
