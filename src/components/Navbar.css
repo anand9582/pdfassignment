@@ -80,7 +80,6 @@
   border-radius: 20px;
 
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
 }
 
 .nav-menu a.active::after {
