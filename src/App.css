@@ -227,20 +227,23 @@ body {
 
 .cart-count {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--light-brown) 100%);
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
   color: white;
   font-size: 0.75rem;
-  font-weight: 600;
-  width: 20px;
+  font-weight: 700;
+  min-width: 20px;
   height: 20px;
-  border-radius: 50%;
+  padding: 0 6px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px var(--shadow);
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
   animation: bounceIn 0.5s ease-out;
+  z-index: 10;
+  border: 2px solid white;
 }
 
 @keyframes bounceIn {
