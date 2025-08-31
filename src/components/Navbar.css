@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg,var(--cream) 0%,var(--light-beige) 100%);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -75,7 +75,7 @@
 
 .nav-menu a.active {
   color: #8B4513;
-  background: rgba(139, 69, 19, 0.15);
+  background: linear-gradient(to right,#d4a76a1a,#d4a76a33);
   font-weight: 600;
   border-radius: 20px;
 
