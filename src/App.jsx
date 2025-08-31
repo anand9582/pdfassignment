@@ -8,6 +8,7 @@ import FeaturedProducts from './components/FeaturedProducts';
 import AboutSnippet from './components/AboutSnippet';
 import TestimonialsSlider from './components/TestimonialsSlider';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   const [cartItems, setCartItems] = useState(0);
@@ -60,6 +61,9 @@ const App = () => {
       
       {/* Footer */}
       <Footer scrollToSection={scrollToSection} />
+      
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 };

@@ -102,7 +102,7 @@
 
 .feature-badge {
   background: #fff;
-  padding: 1rem 1.5rem;
+  padding: 8px 1.5rem;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
