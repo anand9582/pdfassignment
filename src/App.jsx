@@ -1,54 +1,98 @@
-import React, { useState, useRef } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
+// App.js
+import React, { useState } from "react";
+import Correspondence from "./components/Correspondence";
+import Biometric from "./components/Biometric";
+import Original from "./components/Original";
+import "./App.css";
 
-const App = () => {
-  const [cartItems, setCartItems] = useState(0);
-  const [isCartAnimating, setIsCartAnimating] = useState(false);
-  const cartIconRef = useRef(null);
+function App() {
+  const [activeTab, setActiveTab] = useState("correspondence");
 
-  // Handle scroll to sections for footer links
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Fly to cart animation simulation
-  const animateCart = () => {
-    setIsCartAnimating(true);
-    setTimeout(() => {
-      setCartItems(prev => prev + 1);
-      setIsCartAnimating(false);
-    }, 800);
-  };
+  // 🔹 Global state
+  const [sharedData, setSharedData] = useState({
+    applicationNo: "",
+    uci: "",
+    appQrPreview: "",
+    uciQrPreview: "",
+  });
 
   return (
-    <div className="App">
-      <Navbar 
-        cartItems={cartItems} 
-        scrollToSection={scrollToSection}
-        cartIconRef={cartIconRef}
-        isCartAnimating={isCartAnimating}
-      />
-      
-      <Routes>
-        <Route path="/" element={<Home scrollToSection={scrollToSection} animateCart={animateCart} />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      
-      <Footer scrollToSection={scrollToSection} />
-      
-      {/* Scroll to Top Button */}
-      <ScrollToTop />
+    <div className="App" style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
+      {/* Tab Navigation */}
+      <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+        <button
+          onClick={() => setActiveTab("original")}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: activeTab === "original" ? "#007bff" : "#f0f0f0",
+            color: activeTab === "original" ? "#fff" : "#000",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontWeight: "500",
+            marginRight: "10px",
+          }}
+        >
+          Original
+        </button>
+
+        <button
+          onClick={() => setActiveTab("correspondence")}
+          style={{
+            padding: "10px 20px",
+            marginRight: "10px",
+            backgroundColor: activeTab === "correspondence" ? "#007bff" : "#f0f0f0",
+            color: activeTab === "correspondence" ? "#fff" : "#000",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontWeight: "500",
+          }}
+        >
+          Correspondence
+        </button>
+
+        <button
+          onClick={() => setActiveTab("biometric")}
+          style={{
+            padding: "10px 20px",
+            marginRight: "10px",
+            backgroundColor: activeTab === "biometric" ? "#007bff" : "#f0f0f0",
+            color: activeTab === "biometric" ? "#fff" : "#000",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontWeight: "500",
+          }}
+        >
+          Biometric
+        </button>
+      </div>
+
+      {/* Tab Content */}
+      <div
+        style={{
+          border: "1px solid #ccc",
+          borderRadius: "6px",
+          padding: "20px",
+          backgroundColor: "#fff",
+          minHeight: "200px",
+        }}
+      >
+        {activeTab === "correspondence" && (
+          <Correspondence sharedData={sharedData} setSharedData={setSharedData} />
+        )}
+
+        {activeTab === "biometric" && (
+          <Biometric sharedData={sharedData} setSharedData={setSharedData} />
+        )}
+
+        {activeTab === "original" && (
+          <Original sharedData={sharedData} setSharedData={setSharedData} />
+        )}
+      </div>
     </div>
   );
-};
+}
 
 export default App;

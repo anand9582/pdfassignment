@@ -1,0 +1,843 @@
+.pdf-generator-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  background: white;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 12px 30px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 25px;
+  background: #f0f0f0;
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-button:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.scanner-tab {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.generator-tab {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.form-container {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.form-container h1 {
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.generator-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.generate-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.generate-btn:hover {
+  background-color: #45a049;
+}
+
+
+
+.preview-container {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.preview-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.letter-preview {
+  background-color: white;
+  padding: 50px 60px;
+  margin: 0 auto;
+  width: 8.5in;
+  min-height: 11in;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.35;
+  color: #000000;
+}
+
+.letter-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.canada-logo {
+  margin-right: 20px;
+}
+
+.official-logo {
+  width: auto;
+  object-fit: contain;
+}
+
+
+.logo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 60px;
+}
+
+.fallback-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #d32f2f;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text h1 {
+  font-size: 14pt;
+  margin: 0 0 2px 0;
+  color: #000000;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.header-text h2 {
+  font-size: 12pt;
+  margin: 0;
+  color: #000000;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.date-section {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.date-section p {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: normal;
+  color: #000000;
+}
+
+.reference-section {
+  margin-bottom: 25px;
+}
+
+.reference-numbers {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.uci-section {
+  flex: 1;
+}
+
+.app-section {
+  flex: 1;
+  text-align: right;
+}
+
+.uci-label {
+  background-color: #4A90E2;
+  color: white;
+  padding: 8px 12px;
+  margin: 0 0 8px 0;
+  font-size: 11pt;
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.reference-numbers p {
+  margin: 8px 0;
+  margin-bottom: 20px;
+  font-size: 11pt;
+  color: #000000;
+  font-weight: normal;
+}
+
+.reference-note {
+  color: #d32f2f;
+  font-size: 11pt;
+  margin: 10px 0 0 0;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.reference-note p {
+  margin: 0;
+  color: #d32f2f;
+  font-size: 11pt;
+  font-style: italic;
+}
+
+.recipient-address {
+  margin-bottom: 20px;
+}
+
+.recipient-address p {
+  margin: 0 0 5px 0;
+  font-size: 11pt;
+  color: #000000;
+  font-weight: normal;
+}
+
+.address-lines p {
+  margin: 0 0 2px 0;
+  font-size: 11pt;
+  color: #000000;
+  font-weight: normal;
+}
+
+.greeting {
+  margin-bottom: 20px;
+}
+
+.greeting p {
+  margin: 0;
+  font-size: 11pt;
+  color: #000000;
+  font-weight: normal;
+}
+
+.dear-text {
+  font-size: 10pt;
+  font-weight: normal;
+}
+
+.letter-body {
+  margin-bottom: 30px;
+}
+
+.subject-line {
+  margin-bottom: 15pt;
+}
+
+.subject-line h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #000000;
+}
+
+.subject-line h3 strong {
+  font-weight: bold;
+}
+
+.letter-body p {
+  margin-bottom: 10pt;
+  text-align: left;
+  font-size: 10pt;
+  color: #000000;
+  line-height: 1.35;
+}
+
+.letter-body p strong {
+  font-weight: bold;
+}
+
+.letter-body h4 {
+  color: #000000;
+  margin: 18pt 0 12pt 0;
+  font-size: 11pt;
+  font-weight: normal;
+}
+
+.letter-body h4 strong {
+  font-weight: bold;
+}
+
+.letter-body ul {
+  padding-left: 38pt;
+  list-style: disc;
+}
+
+.letter-body li {
+  margin-bottom: 6pt;
+  text-align: left;
+  font-size: 10pt;
+  color: #000000;
+  line-height: 1.35;
+}
+
+.sub-bullet-list {
+  margin-left: 20pt;
+  margin-top: 8pt;
+}
+
+.sub-bullet-list p {
+  margin-bottom: 6pt;
+  font-size: 12pt;
+  color: #000000;
+  line-height: 1.5;
+  text-align: left;
+}
+
+    .document-link {
+     color: #0511ff;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+
+.document-link:hover {
+  color: #004499;
+}
+
+.barcode-container-small {
+  margin: 8px 0;
+}
+
+.small-barcode {
+  height: 25px;
+  max-width: 140px;
+}
+
+.barcode-text-container {
+  margin: 8px 0;
+}
+
+.barcode-text {
+  font-size: 10pt;
+  color: #000000;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 2px 8px;
+  border: 1px solid #cccccc;
+  background-color: #f9f9f9;
+}
+
+.qr-container-small {
+  margin: 8px 0;
+}
+
+.qr-container-small svg {
+  width: 40px !important;
+  height: 40px !important;
+}
+.official-logo2{
+  filter: contrast(0.6);
+  width: 96px;
+}
+.small-qr {
+  max-width: 140px;
+  object-fit: contain;
+}
+
+/* QR Code Upload Styles */
+.qr-upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qr-file-input {
+  display: none;
+}
+
+.qr-upload-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.qr-upload-label:hover {
+  background-color: #45a049;
+}
+
+.qr-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border: 2px dashed #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.qr-preview {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.remove-qr-btn {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.remove-qr-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* QR Code Display in Preview */
+.qr-code-display {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.qr-code-image {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.requirements-list p {
+  margin: 6pt 0;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #000000;
+  text-align: left;
+}
+
+.additional-requirements {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-left: 3px solid #4CAF50;
+}
+
+.additional-requirements p {
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.super-visa-note {
+  margin: 20pt 0;
+  padding: 12pt;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+}
+
+.super-visa-note p {
+  margin: 0;
+  font-size: 10pt;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.italic-note {
+  font-style: italic;
+  color: #000000;
+  font-size: 11pt;
+  margin: 6pt 0;
+  line-height: 1.2;
+}
+
+.website-link {
+  margin: 20pt 0;
+}
+
+.website-link p {
+  margin: 0 0 6pt 0;
+  font-size: 10pt;
+  color: #000000;
+  line-height: 1.35;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: normal;
+}
+
+.website-link p:last-child {
+  margin-bottom: 0;
+}
+
+.attention-section p {
+  margin: 10pt 0;
+  font-size: 10pt;
+  color: #000000;
+  line-height: 1.35;
+}
+
+.dotted-separator {
+  border-bottom: 1px dotted #666;
+  margin: 18pt 0;
+}
+
+.important-section {
+  margin-top: 40pt;
+  margin-bottom: 30pt;
+  text-align: center;
+}
+
+.canada-wordmark-above {
+  margin-bottom: 30pt;
+  text-align: center;
+}
+
+
+
+.canada-text-above {
+  font-size: 18pt;
+  font-weight: bold;
+  color: #000000;
+  font-family: Arial, sans-serif;
+}
+
+.maple-leaf-above {
+  font-size: 16pt;
+}
+
+.important-heading {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 20pt;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.important-bullets {
+  text-align: left;
+}
+
+.important-bullets p {
+  margin-bottom: 12pt;
+  font-size: 12pt;
+  color: #000000;
+  line-height: 1.5;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+.important-bullets p strong {
+  font-weight: bold;
+}
+
+.signature-section {
+  margin-top: 40pt;
+  margin-bottom: 30pt;
+}
+
+.sincerely {
+  margin-bottom: 30pt;
+  font-size: 12pt;
+  color: #000000;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+.address-section {
+  text-align: left;
+}
+
+.address-section p {
+  margin-bottom: 8pt;
+  font-size: 12pt;
+  color: #000000;
+  line-height: 1.5;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+.document-footer {
+  margin-top: 20pt;
+  padding-top: 10pt;
+}
+
+.canada-wordmark {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  gap: 100px;
+}
+
+.canada-logo-small {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.canada-text {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #000000;
+  font-family: Arial, sans-serif;
+}
+
+.maple-leaf {
+  font-size: 12pt;
+}
+
+.document-reference {
+  font-size: 9pt;
+  color: #000000;
+  font-family: Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .pdf-generator-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .generator-tab {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  
+  .form-container {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .preview-container {
+    padding: 15px;
+  }
+  
+  .letter-preview {
+    padding: 20px 10px 20px 30px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 10pt;
+  }
+  
+  .letter-header {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .canada-logo {
+    margin-right: 0;
+    margin-bottom: 15px;
+    align-self: center;
+  }
+  
+  .reference-numbers {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .uci-section, .app-section {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .barcode-container-small {
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .small-barcode {
+    max-width: 120px;
+    height: auto;
+  }
+  
+  .qr-container-small {
+    margin: 10px 0;
+  }
+  
+  .letter-body {
+    margin-bottom: 20px;
+  }
+  
+  .letter-body p {
+    margin-bottom: 10pt;
+    font-size: 10pt;
+  }
+  
+  .letter-body li {
+    margin-bottom: 6pt;
+    font-size: 10pt;
+  }
+  
+  .website-link {
+    margin: 15pt 0;
+  }
+  
+  .attention-section {
+    margin: 15pt 0;
+  }
+  
+  .document-footer {
+    margin-top: 20pt;
+    padding-top: 15pt;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-preview {
+    padding: 15px 20px;
+    font-size: 9pt;
+  }
+  
+  .form-container h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .generate-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .small-barcode {
+    max-width: 100px;
+  }
+  
+  .qr-container-small svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .small-qr {
+    max-width: 120px;
+    height: 20px;
+  }
+  
+  .qr-upload-label {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .qr-preview {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  
+  .qr-code-image {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  
+  .qr-preview-container {
+    padding: 10px;
+  }
+  
+  .remove-qr-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
