@@ -2,7 +2,8 @@ import React, { useState, useRef,useEffect } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import JsBarcode from 'jsbarcode';
-// import "./Original.css"; 
+import "./Original.css";  // ya original.css exact file name ke hisaab se
+
 
 const PDFGenerator = ({ sharedData, setSharedData }) => {
   const [formData, setFormData] = useState({
